@@ -32,10 +32,10 @@ class AuthenticateService {
 
     const token = sign(
       { id: user.id },
-      'bc88da3d876998150651dcb1b26c1be2',
+      `${process.env.JWT_SECRET}`,
       {
         subject: user.username,
-        expiresIn: '10m',
+        expiresIn: '7d',
       },
     );
 
