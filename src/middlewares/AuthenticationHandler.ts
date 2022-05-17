@@ -22,7 +22,7 @@ export default async function AuthenticationHandler(
 
   try {
     const { id } = verify(token, `${process.env.JWT_SECRET}`) as PayloadInterface;
-    request.user_id = id;
+    request.userId = id;
 
     return next();
   } catch (error) {

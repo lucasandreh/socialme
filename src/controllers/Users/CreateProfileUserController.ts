@@ -6,13 +6,14 @@ class CreateUserProfileController {
     const {
       bio, birthday, surname, relationship,
     } = request.body;
+    const { userId } = request;
 
     const profile = await CreateUserProfileService.execute({
       bio,
       birthday,
       relationship,
       surname,
-      userId: 1,
+      userId,
     });
 
     response.json(profile);
