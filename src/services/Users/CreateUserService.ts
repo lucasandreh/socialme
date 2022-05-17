@@ -19,6 +19,16 @@ class CreateUserService {
   } : UserInterface) : Promise<User> {
     const hashedPassword = await hash(password || '', 8);
 
+    const userExist = await prisma.user.findFirst({
+      where: {
+        username,
+      },
+    });
+
+    if (userExist) {
+      throw new Error('usuário já cadastrado');
+    }
+
     const user = await prisma.user.create({
       data: {
         name,

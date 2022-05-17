@@ -21,13 +21,13 @@ class AuthenticateService {
     });
 
     if (!user) {
-      return 'usuário ou senha incorretos';
+      throw new Error('usuário ou senha incorretos');
     }
 
     const verifyPassword = await compare(password, user.password);
 
     if (!verifyPassword) {
-      return 'usuário ou senha incorretos';
+      throw new Error('usuário ou senha incorretos');
     }
 
     const token = sign(
