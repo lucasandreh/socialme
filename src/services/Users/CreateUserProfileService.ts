@@ -23,7 +23,7 @@ class CreateUserProfileService {
         birthday,
         relationship,
         surname,
-        userId: 1,
+        userId,
       },
       update: {
         bio,
