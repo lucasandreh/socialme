@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import UserProfileService from '../../services/Users/UserProfileService';
+import UserProfileService from '../../services/Profile/UserProfileService';
 
 class LoggedUserProfileControler {
   async handle(request: Request, response: Response) {

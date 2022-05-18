@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import CreateUserProfileService from '../../services/Users/CreateUserProfileService';
+import CreateUserProfileService from '../../services/Profile/CreateUserProfileService';
 
 class CreateUserProfileController {
   async handle(request: Request, response: Response) {
