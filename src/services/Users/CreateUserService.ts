@@ -1,7 +1,6 @@
 import { hash } from 'bcrypt';
-import { PrismaClient, User } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { User } from '@prisma/client';
+import prisma from '../../utils/Prisma';
 
 interface UserInterface {
     id?: number

@@ -1,6 +1,5 @@
-import { PrismaClient, Profile } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { Profile } from '@prisma/client';
+import prisma from '../../utils/Prisma';
 
 interface ProfileInterface {
     bio: string

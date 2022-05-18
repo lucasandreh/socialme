@@ -1,8 +1,6 @@
 import { sign } from 'jsonwebtoken';
 import { compare } from 'bcrypt';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../../utils/Prisma';
 
 interface UserInterface {
     username: string
