@@ -12,7 +12,7 @@ class AuthenticateService {
     username,
     password,
   } : UserInterface) : Promise<string> {
-    const user = await prisma.user.findFirst({
+    const user = await prisma.user.findUnique({
       where: {
         username,
       },

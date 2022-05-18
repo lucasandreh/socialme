@@ -1,9 +1,9 @@
 import { Profile } from '@prisma/client';
 import prisma from '../../utils/Prisma';
 
-class UserProfileService {
+class LoggedUserProfileService {
   async execute({ userId } : {userId: number}) : Promise<Profile> {
-    const profile = await prisma.profile.findFirst({
+    const profile = await prisma.profile.findUnique({
       where: {
         userId,
       },
@@ -17,4 +17,4 @@ class UserProfileService {
   }
 }
 
-export default new UserProfileService();
+export default new LoggedUserProfileService();
