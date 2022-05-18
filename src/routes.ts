@@ -5,6 +5,7 @@ import CreateUserController from './controllers/Users/CreateUserController';
 import LoggedUserProfileController from './controllers/Profile/LoggedUserProfileController';
 import AuthenticationHandler from './middlewares/AuthenticationHandler';
 import PublicUserProfileController from './controllers/Profile/PublicUserProfileController';
+import CreatePostController from './controllers/Post/CreatePostController';
 
 const router = Router();
 
@@ -16,5 +17,8 @@ router.post('/user/create/profile', AuthenticationHandler, CreateProfileUserCont
 // User routes GET
 router.get('/user/profile', AuthenticationHandler, LoggedUserProfileController.handle);
 router.get('/user/profile/:username', PublicUserProfileController.handle);
+
+// Posts routes POST
+router.post('/post/create', AuthenticationHandler, CreatePostController.handle);
 
 export default router;
