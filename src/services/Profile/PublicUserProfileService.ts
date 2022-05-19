@@ -1,8 +1,8 @@
-import { Profile } from '@prisma/client';
+// import { Profile } from '@prisma/client';
 import prisma from '../../utils/Prisma';
 
 class PublicUserProfileService {
-  async execute({ username } : {username: string}) : Promise<Profile> {
+  async execute({ username } : {username: string}) : Promise<any> {
     const user = await prisma.user.findUnique({
       where: {
         username,
@@ -16,6 +16,16 @@ class PublicUserProfileService {
     const profile = await prisma.profile.findUnique({
       where: {
         userId: user.id,
+      },
+      select: {
+        user: {
+          select: {
+            id: true,
+            username: true,
+            name: true,
+            profilePic: true,
+          },
+        },
       },
     });
 
