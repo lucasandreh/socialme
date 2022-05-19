@@ -1,4 +1,5 @@
 import type { Request, Response } from 'express';
+import ListUserPostService from '../../services/Posts/ListUserPostService';
 import LoggedUserProfileService from '../../services/Profile/LoggedUserProfileService';
 
 class LoggedUserProfileControler {
@@ -6,8 +7,12 @@ class LoggedUserProfileControler {
     const { userId } = request;
 
     const profile = await LoggedUserProfileService.execute({ userId });
+    const posts = await ListUserPostService.execute({ userId });
 
-    response.json(profile);
+    response.json({
+      profile,
+      posts,
+    });
   }
 }
 
