@@ -16,8 +16,6 @@ class CreateUserService {
     password,
     username,
   } : UserInterface) : Promise<User> {
-    const hashedPassword = await hash(password || '', 8);
-
     const userExist = await prisma.user.findUnique({
       where: {
         username,
@@ -27,6 +25,8 @@ class CreateUserService {
     if (userExist) {
       throw new Error('usuário já cadastrado');
     }
+
+    const hashedPassword = await hash(password || '', 8);
 
     const user = await prisma.user.create({
       data: {
