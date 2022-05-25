@@ -7,11 +7,15 @@ interface UserInterface {
     password: string
 }
 
+interface TokenInterface {
+    token: string
+}
+
 class AuthenticateService {
   async execute({
     username,
     password,
-  } : UserInterface) : Promise<string> {
+  } : UserInterface) : Promise<TokenInterface> {
     const user = await prisma.user.findUnique({
       where: {
         username,
@@ -37,7 +41,9 @@ class AuthenticateService {
       },
     );
 
-    return token;
+    return {
+      token,
+    };
   }
 }
 
