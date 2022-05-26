@@ -19,7 +19,9 @@ class ListAllPostsService {
       },
     });
 
-    return posts;
+    return {
+      posts,
+    };
   }
 }
 

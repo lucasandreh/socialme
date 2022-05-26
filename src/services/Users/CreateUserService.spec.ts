@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import deleteUserJest from '../../utils/DeleteUserJest';
 import CreateUserService from './CreateUserService';
 
@@ -13,8 +14,8 @@ describe('Criar usuário', () => {
 
   beforeAll(() => {
     userData = {
-      name: 'Jest 2',
-      username: 'test_jest2',
+      name: 'Jest2',
+      username: faker.internet.userName(),
       password: 'jest123',
       profilePic: 'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png',
     };

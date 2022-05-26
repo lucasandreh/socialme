@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { faker } from '@faker-js/faker';
 import app from '../../app';
 import deleteUserJest from '../../utils/DeleteUserJest';
 
@@ -14,7 +15,7 @@ describe('Contoller de criação de usuário', () => {
   beforeAll(() => {
     userData = {
       name: 'Jest Supertest',
-      username: 'jest_supertest',
+      username: faker.internet.userName(),
       password: '123456',
     };
   });
