@@ -14,7 +14,7 @@ const router = Router();
 
 // User routes
 router.post('/user/create', CreateUserController.handle);
-router.post('/user/autheticate', AuthenticateController.handle);
+router.post('/user/login', AuthenticateController.handle);
 router.post('/user/create/profile', AuthenticationHandler, CreateProfileUserController.handle);
 
 router.get('/user/profile', AuthenticationHandler, LoggedUserProfileController.handle);

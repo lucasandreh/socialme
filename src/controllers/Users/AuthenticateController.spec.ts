@@ -31,7 +31,7 @@ describe('Controller de autenticação de usuário', () => {
 
   it('Deve retornar o token de autenticação do usuário', async () => {
     const response = await request(app)
-      .post('/user/autheticate')
+      .post('/user/login')
       .send({
         username: userData.username,
         password: userData.password,
@@ -43,7 +43,7 @@ describe('Controller de autenticação de usuário', () => {
 
   it('Deve retornar erro se o usurname esteja errado', async () => {
     const response = await request(app)
-      .post('/user/autheticate')
+      .post('/user/login')
       .send({
         username: 'jest123',
         password: userData.password,
@@ -54,7 +54,7 @@ describe('Controller de autenticação de usuário', () => {
 
   it('Deve retornar erro se a senha esteja errada', async () => {
     const response = await request(app)
-      .post('/user/autheticate')
+      .post('/user/login')
       .send({
         username: userData.username,
         password: '123',
