@@ -8,6 +8,11 @@ class LoggedUserProfileService {
         userId,
       },
       select: {
+        id: true,
+        surname: true,
+        bio: true,
+        birthday: true,
+        relationship: true,
         user: {
           select: {
             id: true,
