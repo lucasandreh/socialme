@@ -18,6 +18,11 @@ class PublicUserProfileService {
         userId: user.id,
       },
       select: {
+        id: true,
+        surname: true,
+        bio: true,
+        birthday: true,
+        relationship: true,
         user: {
           select: {
             id: true,
